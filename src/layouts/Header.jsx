@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+<<<<<<< HEAD
 import { useDispatch } from 'react-redux';
 
 function Header() {
@@ -16,6 +17,12 @@ function Header() {
             </ul>
         </header>)
     /*
+=======
+
+function Header() {
+    const [key, setKey] = useState('home');
+
+>>>>>>> 8d6fac1b39faa877845963d21edd5a9b2f5c9470
     return (
         <>
             <Tabs
@@ -47,7 +54,11 @@ function Header() {
                 </Tab>
             </Tabs >
         </>
+<<<<<<< HEAD
     ); */
+=======
+    );
+>>>>>>> 8d6fac1b39faa877845963d21edd5a9b2f5c9470
 }
 
 export default Header;
