@@ -5,7 +5,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import UserPage from "./pages/UserPage";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
-import JobList from "./pages/Jobs/JobList";
+import JobList from "./pages/Jobs/JobListPage"; 
 
 
 
