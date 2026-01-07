@@ -1,7 +1,7 @@
 function UserPage() {
 
 return (
-    <Fragment><h1>User Page</h1></Fragment>
+    <><h1>User Page</h1></>
     )
 
 }

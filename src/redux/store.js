@@ -7,7 +7,7 @@ import TechInterview from './slices/user.slice'
 
 const rootReducer = combineReducers({
     user: UserReducer
-    //joblist: JobList,
+  //  joblist: JobList,
     //signin : SignIn,
     //techinterview : TechInterview 
 })

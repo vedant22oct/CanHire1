@@ -10,6 +10,7 @@ function Header() {
             <ul className="nav-list">
                 <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/users">Users</NavLink></li>
+                  <li><NavLink to="/JobList">JobList</NavLink></li>
                 <li><Link onClick={() => dispatch(logout())}>Logout</Link></li>
             </ul>
         </header>
