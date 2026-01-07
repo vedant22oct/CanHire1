@@ -9,12 +9,19 @@ function Header() {
         <header>
             <ul className="nav-list">
                 <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/products">Products</NavLink></li>
                 <li><NavLink to="/users">Users</NavLink></li>
+                  <li><NavLink to="/JobList">JobList</NavLink></li>
                 <li><Link onClick={() => dispatch(logout())}>Logout</Link></li>
             </ul>
         </header>
     )
+    //test change
 }
-
-export default Header
+//<li><NavLink to="/products">Products</NavLink></li>
+   /*<li><NavLink to="/joblist">ApplyJob</NavLink></li>
+                <li><NavLink to="/signin">Candidate Signin</NavLink></li>
+                <li><NavLink to="/techinterview">TechInterview</NavLink></li>
+                <li><NavLink to="/techinterview">Location</NavLink></li>
+                <li><NavLink to="/techinterview">Equipment</NavLink></li>*/
+                             
+export default Header;
