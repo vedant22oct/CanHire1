@@ -1,10 +1,22 @@
 import { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import { useDispatch } from 'react-redux';
 
 function Header() {
-    const [key, setKey] = useState('home');
+  // const [key, setKey] = useState('home');
+     const dispatch = useDispatch();
 
+    return (<header>
+            <ul className="nav-list">
+                <li><NavLink to="/">Home</NavLink></li>
+                <li><NavLink to="/products">Products</NavLink></li>
+                <li><NavLink to="/users">Users</NavLink></li>
+                <li><NavLink to="/JobList">JobList</NavLink></li>
+                <li><Link onClick={() => dispatch(logout())}>Logout</Link></li>
+            </ul>
+        </header>)
+    /*
     return (
         <>
             <Tabs
@@ -36,7 +48,7 @@ function Header() {
                 </Tab>
             </Tabs >
         </>
-    );
+    ); */
 }
 
 export default Header;
