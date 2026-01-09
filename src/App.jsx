@@ -5,7 +5,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import UserPage from "./pages/UserPage";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
-import JobList from "./pages/Jobs/JobListPage"; 
+import JobList from "./pages/Jobs/JobListPage";
 
 
 
@@ -19,7 +19,7 @@ function MyApp() {
         <Route element={<ProtectedRoute />}>
           <Route index element={<HomePage />}></Route>
           <Route path="/users" element={<UserPage />}></Route>
-           <Route path="/joblist" element={<JobList />}></Route>
+          <Route path="/joblist" element={<JobList />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

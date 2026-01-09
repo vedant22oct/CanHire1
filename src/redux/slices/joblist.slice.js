@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const jobList ={
-        job_id: '',
-        role: '',
-        location: '',
+        job_id: 'j1',
+        role: 'user',
+        location: 'blr',
         job_filled: false
       }
 
@@ -21,11 +21,15 @@ const JobListReducer = createSlice({
             }   
     },
     reducers: {
-        setJobList(state, action) {
+        getJobList(state, action) {
             return { ...state, jobList: action.payload }
+        },
+        addJobList(state, action) {
+            //return { ...state, jobList: action.payload }
+            state.jobList.push(action.payload);
         }
     }
 })
 
-export const { setJobList } = JobListReducer.actions;
+export const { getJobList, addJobList } = JobListReducer.actions;
 export default JobListReducer.reducer;

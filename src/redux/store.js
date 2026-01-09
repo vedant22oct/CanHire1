@@ -5,11 +5,13 @@ import SignIn from './slices/user.slice'
 import TechInterview from './slices/user.slice'
 //import ThemeReducer from './slices/theme.slice'
 import dbReducer from "./slices/db.slice";
+import itemReducer from "./slices/itemSlice";
 
 const rootReducer = combineReducers({
   user: UserReducer,
   db: dbReducer,
-  joblist: JobListReducer
+  joblist: JobListReducer,
+  items: itemReducer
   //signin : SignIn,
   //techinterview : TechInterview
 });
