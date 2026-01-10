@@ -1,22 +1,24 @@
 import React from 'react'
 import { Fragment, useState } from 'react'
-//import JobList from '../../components/JobListCom' 
-import ItemListView from '../../components/JobListCom'
+import JobList from '../../components/JobListCom' 
+import ItemListView from '../../components/ItemListView'
 
 
-function JobList() {
+function JobListPage() {
 
   const [jobs, setUsers] = useState([]);
 
   return (
     <Fragment>
         <h1 className='page-title'>This is my Job List!</h1>
-        <ItemListView />
+        <JobList />
+       
     </Fragment>
   );
 };
 
-export default JobList
+export default JobListPage
 
 //<JobList jobs={jobs} />
+// <ItemListView />
 //  <JobList jobs={jobs} setJobs={setUsers} />
