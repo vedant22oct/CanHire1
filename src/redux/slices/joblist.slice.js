@@ -1,14 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { addCandidate,addjobs, getData }from './dbPrasad.slice';
+import React, { use } from 'react';
 
 
+  const  JobListData= getData().jobs;   
+//   const candidatesData = data.candidates;
+//   const applicationsData = data.applications;
+//   const interviewsData = data.interviews;       
 
 const initialState = {
+    jobList: JobListData
+    // candidatesList: candidatesData,
+    // applicationsList: applicationsData,
+    // interviewsList: interviewsData  
+}; 
+
+
+/*const initialState = {
    JobListData : [
         { job_id: 'j1', role: 'user', location: 'blr', job_filled: false },
         { job_id: 'j2', role: 'user', location: 'Chennai', job_filled: false },
         { job_id: 'j3', role: 'user', location: 'Hydrabad', job_filled: false }
     ],
-};
+};*/
 
 const JobListReducer = createSlice({
     name: 'JobList',

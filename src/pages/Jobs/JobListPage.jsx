@@ -12,7 +12,7 @@ function JobListPage() {
     <Fragment>
         <h1 className='page-title'>This is my Job List!</h1>
         <JobList />
-       
+
     </Fragment>
   );
 };
