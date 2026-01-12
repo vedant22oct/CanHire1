@@ -6,11 +6,13 @@ import TechInterview from './slices/user.slice'
 //import ThemeReducer from './slices/theme.slice'
 //import dbReducer from "./slices/db.slice";
 import itemReducer from "./slices/itemSlice";
+//import { loadState, saveState } from "../utils/localStorage";
+import dbPrasadData  from "./slices/dbPrasad.slice";
 
 const rootReducer = combineReducers({
   user: UserReducer,
  // db: dbReducer,
-  joblist: JobListReducer
+  dbPrasad: dbPrasadData
   //items: itemReducer
   //signin : SignIn,
   //techinterview : TechInterview

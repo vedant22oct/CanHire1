@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  data: [
+/*const initialState = {
+  jobs: [
     { id: 1, title: 'Learn Redux Toolkit', status: 'Completed' },
     { id: 2, title: 'Build a React App', status: 'In Progress' },
     { id: 3, title: 'Master Clean Code', status: 'Pending' }
   ],
-};
+};*/
 
-/*
+
 const initialState = {
   candidates: [{
     "candidate_id": "CAND001",
@@ -117,27 +117,27 @@ const initialState = {
             "loading": false
         }],
 };
-*/
 
-export const counterSlice = createSlice({
+
+export const dbPrasadData = createSlice({
   name: "dbData",
   initialState ,
   reducers: {
-    // addCandidate: (state, action) => {
-    //   state.candidates.push(action.payload);
-    // },
-    // addjobs: (state, action) => {
-    //   state.jobs.push(action.payload);
-    // },
+    addCandidate: (state, action) => {
+      state.candidates.push(action.payload);
+    },
+    addjob: (state, action) => {
+      state.jobs.push(action.payload);
+    },
     getData: (state, action) => {
       return { ...state, data: action.payload };
     },
   },
 });
 
-export const { addCandidate,addjobs, getData } = counterSlice.actions;
+export const { addCandidate,addjob, getData } = dbPrasadData.actions;
 
-export default counterSlice.reducer;
+export default dbPrasadData.reducer;
 
 
 // export const { addItem, removeItem } = itemSlice.actions;

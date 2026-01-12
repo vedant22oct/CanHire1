@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addCandidate,addjobs, getData }from './dbPrasad.slice';
+import { addCandidate,addjob, getData }from './dbPrasad.slice';
 import React, { use } from 'react';
 
 

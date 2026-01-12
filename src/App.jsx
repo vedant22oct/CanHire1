@@ -6,6 +6,7 @@ import UserPage from "./pages/UserPage";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import JobList from "./pages/Jobs/JobListPage";
+import JobDetailsPage from "./pages/Jobs/JobDetailsPage";
 
 
 
@@ -19,27 +20,13 @@ function MyApp() {
         <Route element={<ProtectedRoute />}>
           <Route index element={<HomePage />}></Route>
           <Route path="/users" element={<UserPage />}></Route>
-          <Route path="/joblist" element={<JobList />}></Route>
+          <Route path="/joblist">
+            <Route index element={<JobList />}></Route>
+            <Route path=":jobid" element={<JobDetailsPage />}></Route>
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
   )
 }
 export default MyApp;
-
-/*
-<BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<LoginPage />}></Route>
-      </Routes>
-    </BrowserRouter>
-    <Route element={<ProtectedRoute />}>
-          <Route index element={<HomePage />}></Route>
-          <Route path="/users" element={<UserPage />}></Route>
-           <Route path="/login" element={<LoginPage />}></Route>
-        </Route>
-
-          <Route index element={<HomePage />}></Route>
-        <Route path="/login" element={<LoginPage />}></Route>
-
-    */
