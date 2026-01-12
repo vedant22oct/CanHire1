@@ -1,11 +1,12 @@
 
 import { Routes, Route, BrowserRouter } from 'react-router';
-import reactLogo from './assets/react.svg'
+//import reactLogo from './assets/react.svg'
 import ProtectedRoute from "./components/ProtectedRoute";
 import UserPage from "./pages/UserPage";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import JobList from "./pages/Jobs/JobList";
+import JobDetailsPage from "./pages/Jobs/JobDetailsPage";
 
 
 
@@ -19,7 +20,11 @@ function MyApp() {
         <Route element={<ProtectedRoute />}>
           <Route index element={<HomePage />}></Route>
           <Route path="/users" element={<UserPage />}></Route>
-           <Route path="/joblist" element={<JobList />}></Route>
+          <Route path="/joblist">
+              <Route index element={<JobList />}></Route>
+              <Route path=":jobid" element={<JobDetailsPage />}></Route>
+            </Route>
+           
         </Route>
       </Routes>
     </BrowserRouter>
