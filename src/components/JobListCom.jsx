@@ -10,12 +10,22 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Tabs, Tab, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router'; 
+
+import { addJobList, removeJobList } from '../redux/slices/joblist.slice';
+
+
 //import { addCandidate,addjob, getData } from '../redux/slices/dbPrasad.slice'; 
 // <link to ={job.job_id} >{job.job_id}</link><strong>{job.job_id}</strong> <strong>{job.role}</strong> — {job.location}
 
 const JobListView = () => {
   const jobs = useSelector((state) => state.dbPrasad.jobs);
   const dispatch = useDispatch();
+
+const handleRemoveJob = (job_id) => {
+    dispatch(removeJobList({ job_id }));
+  };  
+
+
   return (
     <div>
       <h2>Job List</h2>
@@ -47,7 +57,7 @@ const JobListView = () => {
                           Add
                         </button>
                         <button
-                          onClick={() => dispatch(removeJobList(job.job_id))}
+                          onClick={() => handleRemoveJob(job.job_id)}
                           style={{ color: 'red', cursor: 'pointer' }}
                         >
                           Delete
