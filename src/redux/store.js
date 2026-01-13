@@ -7,7 +7,7 @@ import TechInterview from './slices/user.slice'
 //import dbReducer from "./slices/db.slice";
 import itemReducer from "./slices/itemSlice";
 //import { loadState, saveState } from "../utils/localStorage";
-import dbPrasadData  from "./slices/dbPrasad.slice";
+import dbPrasadData ,{addCandidate,addjob, getData,removeJobList} from "./slices/dbPrasad.slice";
 
 const rootReducer = combineReducers({
   user: UserReducer,

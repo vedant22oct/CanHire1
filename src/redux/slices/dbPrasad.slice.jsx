@@ -132,13 +132,13 @@ export const dbPrasadData = createSlice({
     getData: (state, action) => {
       return { ...state, data: action.payload };
     },
+       removeJobList: (state, action) => {
+     state.jobs = state.jobs.filter(job => job.job_id !== action.payload.job_id); 
+    },
   },
 });
 
-export const { addCandidate,addjob, getData } = dbPrasadData.actions;
+export const { addCandidate,addjob, getData,removeJobList } = dbPrasadData.actions;
 
 export default dbPrasadData.reducer;
 
-
-// export const { addItem, removeItem } = itemSlice.actions;
-// export default itemSlice.reducer;
