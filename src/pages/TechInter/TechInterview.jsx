@@ -1,11 +1,11 @@
 import React from 'react'
 
-function TechInterview() {
+function TechnicalInterview() {
   return (
     <div>
-        <h1 className='page-title'>This is my TechInterview!</h1>
+        <h1 className='page-title'>Tech Interview</h1>
     </div>
   )
 }
 
-export default TechInterview
+export default TechnicalInterview
