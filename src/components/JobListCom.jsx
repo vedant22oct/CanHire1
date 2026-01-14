@@ -1,24 +1,13 @@
-// databale
-// import React, { use } from 'react';
-// //import { getJobList, addJobList } from '../redux/slices/joblist.slice';  
-// //import { removeItem } from '../redux/slices/itemSlice';   
-// import { getJobList, addJobList, removeJobList } from '../redux/slices/joblist.slice';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { Tabs, Tab, Container } from 'react-bootstrap';
 
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Tabs, Tab, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router'; 
-
-import { addJobList, removeJobList } from '../redux/slices/joblist.slice';
-
-
-//import { addCandidate,addjob, getData } from '../redux/slices/dbPrasad.slice'; 
-// <link to ={job.job_id} >{job.job_id}</link><strong>{job.job_id}</strong> <strong>{job.role}</strong> — {job.location}
+//import {  removeJobList } from '../redux/slices/db.slice'; 
+import { removeJobList } from '../redux/slices/db.slice';
 
 const JobListView = () => {
-  const jobs = useSelector((state) => state.dbPrasad.jobs);
+  const jobs = useSelector((state) => state.db.jobs);
   const dispatch = useDispatch();
 
 const handleRemoveJob = (job_id) => {
@@ -48,7 +37,7 @@ const handleRemoveJob = (job_id) => {
                     }}>
                       
                       <strong>{job.job_id}</strong> <strong>{job.role}</strong> — {job.location}
-                      <h2><NavLink to={`/JobDetailsCom/${job.job_id}`}>Details</NavLink></h2>
+                      <h2><NavLink to={`/joblist/${job.job_id}`}>Details</NavLink></h2>
                        <span>
                         <button
                           onClick={() => dispatch(addJobList(job.job_id))}
@@ -79,184 +68,4 @@ const handleRemoveJob = (job_id) => {
 
 export default JobListView;
 
-/*
-
- <Tab eventKey="Apply Job" title="Apply Jobs">
-              <div>
-                <h3>Applied Jobs</h3>
-                <ul style={{ listStyle: 'none', padding: 0 }}>
-                  {jobs.filter(job => job.applied).map((job) => (
-                    <li key={job.job_id} style={{
-                      borderBottom: '1px solid #ddd',
-                      padding: '10px 0',
-                      display: 'flex',
-                      justifyContent: 'space-between'
-                    }}>
-                      <span>
-                        <strong>{job.role}</strong> — {job.location} - {job.job_filled ? 'false' : 'Open'    }
-                      </span>
-                      <button
-                        onClick={() => dispatch(removeJobList(job.job_id))}
-                        style={{ color: 'red', cursor: 'pointer' }}
-                      >
-                        Delete
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Tab>
-
-///tab end
-  <span>
-                              <strong>{job.role}</strong> — {job.location}
-                            </span>
-                            <button
-                              onClick={() => dispatch(removeJobList(job.job_id))}
-                              style={{ color: 'red', cursor: 'pointer' }}
-                            >
-                              Delete
-                            </button>
-
-
-const ItemListView = () => {
-  // Accessing the 'data' array from the 'items' slice
-  const items = useSelector((state) => state.items.data);
-  const dispatch = useDispatch();
-return (
-//
-{jobs.map((job) => (
-                        <li key={job.id}>
-                            {job.role} - {job.location}
-                            <button onClick={() => dispatch(removeItem(job.id))}>
-                                Remove
-                            </button>
-                        </li>
-                    ))}
-//
-
-    <div>
-                <h2>Item List</h2>
-                <ul>
-                    {items.map((item) => (
-                        <li key={item.id}>
-                            {item.title} - {item.status}
-                            <button onClick={() => dispatch(removeItem(item.id))}>
-                                Remove
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-
-                <Container className='mt-4'>
-                <Tabs defaultActiveKey="items" id="uncontrolled-tab-example" className="mb-3">
-                  <Tab eventKey="items" title="Items">
-                    <div>
-                      <h3>Project Tasks</h3>
-                      <ul style={{ listStyle: 'none', padding: 0 }}>
-                        {items.map((item) => (
-                          <li key={item.id} style={{
-                            borderBottom: '1px solid #ddd',
-                            padding: '10px 0',
-                            display: 'flex',
-                            justifyContent: 'space-between'
-                          }}>
-                            <span>
-                              <strong>{item.title}</strong> — {item.status}
-                            </span>
-                            <button
-                              onClick={() => dispatch(removeItem(item.id))}
-                              style={{ color: 'red', cursor: 'pointer' }}
-                            >
-                              Delete
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </Tab>
-                </Tabs>
-                </Container>
-            </div>
-)
-}*/
-/* return (
-   <div style={{ padding: '20px', maxWidth: '400px' }}>
-     <h3>Project Tasks</h3>
-     <ul style={{ listStyle: 'none', padding: 0 }}>
-       {items.map((item) => (
-         <li key={item.id} style={{
-           borderBottom: '1px solid #ddd',
-           padding: '10px 0',
-           display: 'flex',
-           justifyContent: 'space-between'
-         }}>
-           <span>
-             <strong>{item.title}</strong> — {item.status}
-           </span>
-           <button
-             onClick={() => dispatch(removeItem(item.id))}
-             style={{ color: 'red', cursor: 'pointer' }}
-           >
-             Delete
-           </button>
-         </li>
-       ))}
-     </ul>
-   </div>
- );/*
-};
-
-//function JobList(){
-
-  /* function ItemListView (){
-       const itemList = useSelector((state) => state.items.list);
-       const dispatch = useDispatch();
-       return (
-           <div>
-               <h2>Item List</h2>
-               <ul>
-                   {itemList.map((item) => (
-                       <li key={item.id}>
-                           {item.title} - {item.status}
-                           <button onClick={() => dispatch(removeItem(item.id))}>
-                               Remove
-                           </button>
-                       </li>
-                   ))}
-               </ul>
-           </div>
-       );
-
-   }*/
-//cosnt jobs = getJobList();
-/*  const jobs = getJobList((state)=>state.joblist );
-      const dispatch = useDispatch();
-
-  const handleAddJob = (newJob) => {
-      dispatch(addJobList(newJob));
-  };
-
-  return (<>
-  <h1>Job List Component</h1>
-  </>)*/
-//}
-
-/*
-function JobList({jobs}) {
-    return (
-        <div className="job-list">
-        {
-          jobs.map((job) => (
-            <div className="user">
-              <h4>{job.job_id}</h4>
-              <p>{job.role}</p>
-              <p>{job.location}</p>
-              <p>{job.job_filled}</p>
-            </div>
-          ))
-        }
-      </div>
-    )
-}*/
 

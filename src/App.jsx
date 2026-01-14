@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import JobList from "./pages/Jobs/JobListPage";
 import JobDetailsPage from "./pages/Jobs/JobDetailsPage";
+import JobApplySuccessPage from "./pages/Jobs/JobApplySuccessPage"; 
 
 
 
@@ -22,7 +23,8 @@ function MyApp() {
           <Route path="/users" element={<UserPage />}></Route>
           <Route path="/joblist">
             <Route index element={<JobList />}></Route>
-            <Route path=":jobid" element={<JobDetailsPage />}></Route>
+            <Route path=":job_id" element={<JobDetailsPage />}></Route>
+            <Route path=":job_id/Sucess" element={<JobApplySuccessPage />}></Route>
           </Route>
         </Route>
       </Routes>

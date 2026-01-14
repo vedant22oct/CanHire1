@@ -2,6 +2,7 @@
 import { useParams   } from "react-router";
 import {useSelector, useDispatch} from 'react-redux';    
 import React, { Fragment } from "react";
+import JobDetailsCom from "../../components/JobDetailsCom";
 
 function JobDetailsPage() {
   const { job_id } = useParams();
@@ -9,7 +10,7 @@ function JobDetailsPage() {
   return (
     <Fragment>
       <h1 className="page-title">Job Details Page</h1>
-      <p>Details for Job ID: {job_id}</p>
+      <JobDetailsCom />
     </Fragment>
   );
 }

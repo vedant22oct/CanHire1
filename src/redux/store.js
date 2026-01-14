@@ -3,16 +3,13 @@ import UserReducer from './slices/user.slice'
 import JobListReducer from './slices/joblist.slice'
 import SignIn from './slices/user.slice'
 import TechInterview from './slices/user.slice'
-//import ThemeReducer from './slices/theme.slice'
-//import dbReducer from "./slices/db.slice";
 import itemReducer from "./slices/itemSlice";
-//import { loadState, saveState } from "../utils/localStorage";
-import dbPrasadData ,{addCandidate,addjob, getData,removeJobList} from "./slices/dbPrasad.slice";
+import dbData from './slices/db.slice'  
 
 const rootReducer = combineReducers({
   user: UserReducer,
  // db: dbReducer,
-  dbPrasad: dbPrasadData
+  db: dbData
   //items: itemReducer
   //signin : SignIn,
   //techinterview : TechInterview
