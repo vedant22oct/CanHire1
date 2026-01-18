@@ -1,13 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-/*const initialState = {
-  jobs: [
-    { id: 1, title: 'Learn Redux Toolkit', status: 'Completed' },
-    { id: 2, title: 'Build a React App', status: 'In Progress' },
-    { id: 3, title: 'Master Clean Code', status: 'Pending' }
-  ],
-};*/
-
 
 const initialState = {
   candidates: [{

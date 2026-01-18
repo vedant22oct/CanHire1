@@ -2,18 +2,28 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Tabs, Tab, Container } from 'react-bootstrap';
-import { NavLink } from 'react-router'; 
+import { NavLink } from 'react-router';
 //import {  removeJobList } from '../redux/slices/db.slice'; 
-import { removeJobList } from '../redux/slices/db.slice';
+import { removeJobList, addjob} from '../redux/slices/db.slice';
+import JobAddChild from './JobAddCom';
+
+
 
 const JobListView = () => {
   const jobs = useSelector((state) => state.db.jobs);
   const dispatch = useDispatch();
 
-const handleRemoveJob = (job_id) => {
+  const handleRemoveJob = (job_id) => {
     dispatch(removeJobList({ job_id }));
-  };  
+  };
 
+  const handleAddJob = (job) => {
+    // Dispatch an action to add the job
+    // dispatch({ type: 'ADD_JOB', payload: job });
+    return <JobAddChild onData={handleChildData} />;
+    console.log('Add job:', job);
+
+  };
 
   return (
     <div>
@@ -35,15 +45,21 @@ const handleRemoveJob = (job_id) => {
                       display: 'flex',
                       justifyContent: 'space-between'
                     }}>
-                      
+
                       <strong>{job.job_id}</strong> <strong>{job.role}</strong> — {job.location}
                       <h2><NavLink to={`/joblist/${job.job_id}`}>Details</NavLink></h2>
-                       <span>
+                      <span>
                         <button
-                          onClick={() => dispatch(addJobList(job.job_id))}
+                          onClick={() => handleAddJob(job)}
                           style={{ color: 'red', cursor: 'pointer' }}
                         >
                           Add
+                        </button>
+                         <button
+                          onClick={() => dispatch(addJobList(job.job_id))}
+                          style={{ color: 'red', cursor: 'pointer' }}
+                        >
+                          Save
                         </button>
                         <button
                           onClick={() => handleRemoveJob(job.job_id)}

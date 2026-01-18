@@ -1,4 +1,3 @@
-
 import { Routes, Route, BrowserRouter } from 'react-router';
 import reactLogo from './assets/react.svg'
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -8,7 +7,7 @@ import HomePage from "./pages/HomePage";
 import JobList from "./pages/Jobs/JobListPage";
 import JobDetailsPage from "./pages/Jobs/JobDetailsPage";
 import JobApplySuccessPage from "./pages/Jobs/JobApplySuccessPage"; 
-
+import LocationAssign from './pages/Loc/LocationAssign';
 
 
 import './App.css'
@@ -26,6 +25,7 @@ function MyApp() {
             <Route path=":job_id" element={<JobDetailsPage />}></Route>
             <Route path=":job_id/Sucess" element={<JobApplySuccessPage />}></Route>
           </Route>
+          <Route path="/locationlist" element={<LocationAssign />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

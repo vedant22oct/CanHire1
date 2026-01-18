@@ -20,9 +20,9 @@ const initialState = {
     "job_filled": false,
     "job_description": "Responsible for server-side web application logic and integration of the work front-end developers do.",
     "requirements": [
-      "Proficiency in server-side languages such as Java, Python, Ruby, .NET, JavaScript, etc.",
-      "Experience with database management and data modeling.",
-      "Familiarity with RESTful API design and development."
+      { "id": 1, "requirement": "Proficiency in server-side languages such as Java, Python, Ruby, .NET, JavaScript, etc." },
+      { "id": 2, "requirement": "Experience with database management and data modeling." },
+      { "id": 3, "requirement": "Familiarity with RESTful API design and development." }
     ]
   },
   {
@@ -32,9 +32,9 @@ const initialState = {
     "job_filled": false,
     "job_description": "Responsible for server-side web application logic and integration of the work front-end developers do.",
     "requirements": [
-      "Proficiency in server-side languages such as Java, Python, Ruby, .NET, JavaScript, etc.",
-      "Experience with database management and data modeling.",
-      "Familiarity with RESTful API design and development."
+      { "id": 1, "requirement": "Proficiency in server-side languages such as Java, Python, Ruby, .NET, JavaScript, etc." },
+      { "id": 2, "requirement": "Experience with database management and data modeling." },
+      { "id": 3, "requirement": "Familiarity with RESTful API design and development." }
     ]
   },
   {
@@ -44,9 +44,9 @@ const initialState = {
     "job_filled": false,
     "job_description": "Responsible for server-side web application logic and integration of the work front-end developers do.",
     "requirements": [
-     {"id":1, "requirement": "Proficiency in server-side languages such as Java, Python, Ruby, .NET, JavaScript, etc."},  
-      {"id":2, "requirement": "Experience with database management and data modeling."},
-      {"id":3, "requirement": "Familiarity with RESTful API design and development."}
+      { "id": 1, "requirement": "Proficiency in server-side languages such as Java, Python, Ruby, .NET, JavaScript, etc." },
+      { "id": 2, "requirement": "Experience with database management and data modeling." },
+      { "id": 3, "requirement": "Familiarity with RESTful API design and development." }
     ]
   }],
   applications: [{
@@ -88,6 +88,11 @@ const initialState = {
     "location_id": "LOC02",
     "city": "Chennai",
     "bdc": "Tambaram BDC"
+  },
+  {
+    "location_id": "LOC03",
+    "city": "Hyderabad",
+    "bdc": "Gachibowli BDC"
   }],
   desks: [{
     "desk_id": "DESK45",
@@ -134,29 +139,28 @@ export const dbData = createSlice({
     addCandidate: (state, action) => {
       state.candidates.push(action.payload);
     },
+    getApplicationsByCandidate: (state, action) => {
+      return state.applications.filter(app => app.candidate_id === action.payload.candidate_id);
+    },
     addjob: (state, action) => {
       state.jobs.push(action.payload);
-    },
-    getData: (state, action) => {
-      return { ...state, data: action.payload };
     },
     removeJobList: (state, action) => {
       state.jobs = state.jobs.filter(job => job.job_id !== action.payload.job_id);
     },
     addApplication: (state, action) => {
-      state.applications.push(action.payload);      
-  },
-  removeApplication: (state, action) => {
-      state.applications = state.applications.filter(app => app.application_id !== action.payload.application_id);      
-  }  ,
-  getApplicationsByCandidate: (state, action) => {
-      return state.applications.filter(app => app.candidate_id === action.payload.candidate_id);  
-  },
-  },
-});   
+      state.applications.push(action.payload);
+    },
+    removeApplication: (state, action) => {
+      state.applications = state.applications.filter(app => app.application_id !== action.payload.application_id);
+    },
+    addLocaionAssignment: (state, action) => {
+      state.locationAssignments.push(action.payload);
+    },
+  }});
 
 //export const { addCandidate } = counterSlice.actions;
 
-export const { addCandidate,addjob, getData,removeJobList, addApplication, removeApplication, getApplicationsByCandidate   } = dbData.actions;
+export const { addCandidate, addjob, getData, removeJobList, addApplication, removeApplication, getApplicationsByCandidate } = dbData.actions;
 
 export default dbData.reducer;
