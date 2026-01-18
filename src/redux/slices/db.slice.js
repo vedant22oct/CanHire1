@@ -1,135 +1,1015 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  candidates: [{
-    "candidate_id": "CAND001",
-    "name": "Arun Kumar",
-    "email": "arun.kumar@example.com",
-    "password": "123456"
-  }, {
-    "candidate_id": "CAND002",
-    "name": "Ravi Kumar",
-    "email": "ravi.kumar@example.com",
-    "password": "6543212"
-  }
+  candidates: [
+    {
+      candidate_id: "CAND001",
+      name: "Arun Kumar",
+      email: "arun.kumar@example.com",
+      password: "123456",
+    },
+    {
+      candidate_id: "CAND002",
+      name: "Ravi Kumar",
+      email: "ravi.kumar@example.com",
+      password: "6543212",
+    },
   ],
-  jobs: [{
-    "job_id": "JOB101",
-    "role": "Frontend Developer",
-    "location": "Bangalore",
-    "job_filled": false,
-    "job_description": "Responsible for server-side web application logic and integration of the work front-end developers do.",
-    "requirements": [
-      { "id": 1, "requirement": "Proficiency in server-side languages such as Java, Python, Ruby, .NET, JavaScript, etc." },
-      { "id": 2, "requirement": "Experience with database management and data modeling." },
-      { "id": 3, "requirement": "Familiarity with RESTful API design and development." }
-    ]
-  },
-  {
-    "job_id": "JOB102",
-    "role": "Backend Developer",
-    "location": "Hyderabad",
-    "job_filled": false,
-    "job_description": "Responsible for server-side web application logic and integration of the work front-end developers do.",
-    "requirements": [
-      { "id": 1, "requirement": "Proficiency in server-side languages such as Java, Python, Ruby, .NET, JavaScript, etc." },
-      { "id": 2, "requirement": "Experience with database management and data modeling." },
-      { "id": 3, "requirement": "Familiarity with RESTful API design and development." }
-    ]
-  },
-  {
-    "job_id": "JOB103",
-    "role": "Middleware Developer",
-    "location": "Chennai",
-    "job_filled": false,
-    "job_description": "Responsible for server-side web application logic and integration of the work front-end developers do.",
-    "requirements": [
-      { "id": 1, "requirement": "Proficiency in server-side languages such as Java, Python, Ruby, .NET, JavaScript, etc." },
-      { "id": 2, "requirement": "Experience with database management and data modeling." },
-      { "id": 3, "requirement": "Familiarity with RESTful API design and development." }
-    ]
-  }],
-  applications: [{
-    "application_id": "APP001",
-    "candidate_id": "CAND001",
-    "job_id": "JOB101",
-    "applied_on": "2026-01-05",
-    "status": "IN_PROGRESS"
-  },
-  {
-    "application_id": "APP002",
-    "candidate_id": "CAND002",
-    "job_id": "JOB102",
-    "applied_on": "2026-01-05",
-    "status": "FILLED"
-  }],
-  interviews: [{
-    "interview_id": "INT001",
-    "application_id": "APP001",
-    "type": "TECHNICAL",
-    "decision": "PASS",
-    "comments": "Strong React and JavaScript fundamentals",
-    "interviewed_on": "2026-01-06"
-  },
-  {
-    "interview_id": "INT002",
-    "application_id": "APP002",
-    "type": "MANAGER",
-    "decision": "APPROVED",
-    "comments": "Good communication and team fit",
-    "interviewed_on": "2026-01-07"
-  }],
-  locations: [{
-    "location_id": "LOC01",
-    "city": "Bangalore",
-    "bdc": "Whitefield BDC"
-  },
-  {
-    "location_id": "LOC02",
-    "city": "Chennai",
-    "bdc": "Tambaram BDC"
-  },
-  {
-    "location_id": "LOC03",
-    "city": "Hyderabad",
-    "bdc": "Gachibowli BDC"
-  }],
-  desks: [{
-    "desk_id": "DESK45",
-    "location_id": "LOC01",
-    "desk_no": "45"
-  }],
-  locationAssignments: [{
-    "assignment_id": "LA001",
-    "candidate_id": "CAND001",
-    "job_id": "JOB101",
-    "desk_id": "DESK45",
-    "start_date": "2026-02-01"
-  }],
-  laptops: [{
-    "laptop_id": "LAP1001",
-    "name": "Dell Latitude 5430",
-    "expire_date": "2029-02-01"
-  }],
-  equipmentAssignments: [{
-    "assignment_id": "EA001",
-    "candidate_id": "CAND001",
-    "laptop_id": "LAP1001",
-    "start_date": "2026-02-01"
-  }],
-  users: [{
-    "currentUserRole": "HR",
-    "activeCandidateId": "CAND001",
-    "activeJobId": "JOB101",
-    "currentStep": "EQUIPMENT_ASSIGNMENT",
-    "loading": false
-  }, {
-    "currentUserRole": "Manager",
-    "activeCandidateId": "CAND002",
-    "activeJobId": "JOB102",
-    "currentStep": "EQUIPMENT_ASSIGNMENT",
-    "loading": false
-  }],
+  jobs: [
+    {
+      job_id: "JOB101",
+      role: "Frontend Developer",
+      location: "Bangalore",
+      job_filled: false,
+      job_description:
+        "Responsible for server-side web application logic and integration of the work front-end developers do.",
+      requirements: [
+        {
+          id: 1,
+          requirement:
+            "Proficiency in server-side languages such as Java, Python, Ruby, .NET, JavaScript, etc.",
+        },
+        {
+          id: 2,
+          requirement: "Experience with database management and data modeling.",
+        },
+        {
+          id: 3,
+          requirement: "Familiarity with RESTful API design and development.",
+        },
+      ],
+    },
+    {
+      job_id: "JOB102",
+      role: "Backend Developer",
+      location: "Hyderabad",
+      job_filled: false,
+      job_description:
+        "Responsible for server-side web application logic and integration of the work front-end developers do.",
+      requirements: [
+        {
+          id: 1,
+          requirement:
+            "Proficiency in server-side languages such as Java, Python, Ruby, .NET, JavaScript, etc.",
+        },
+        {
+          id: 2,
+          requirement: "Experience with database management and data modeling.",
+        },
+        {
+          id: 3,
+          requirement: "Familiarity with RESTful API design and development.",
+        },
+      ],
+    },
+    {
+      job_id: "JOB103",
+      role: "Middleware Developer",
+      location: "Chennai",
+      job_filled: false,
+      job_description:
+        "Responsible for server-side web application logic and integration of the work front-end developers do.",
+      requirements: [
+        {
+          id: 1,
+          requirement:
+            "Proficiency in server-side languages such as Java, Python, Ruby, .NET, JavaScript, etc.",
+        },
+        {
+          id: 2,
+          requirement: "Experience with database management and data modeling.",
+        },
+        {
+          id: 3,
+          requirement: "Familiarity with RESTful API design and development.",
+        },
+      ],
+    },
+  ],
+  applications: [
+    {
+      application_id: "APP001",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-01-01",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP002",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-01-02",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP003",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-01-03",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP004",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-01-04",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP005",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-01-05",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP006",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-02-01",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP007",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-02-02",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP008",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-02-03",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP009",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-02-04",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP010",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-02-05",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP011",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-02-06",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP012",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-02-07",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP013",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-02-08",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP014",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-02-09",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP015",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-02-10",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP016",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-02-11",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP017",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-02-12",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP018",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-03-01",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP019",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-03-02",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP020",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-03-03",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP021",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-03-04",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP022",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-03-05",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP023",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-03-06",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP024",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-03-07",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP025",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-03-08",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP026",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-04-01",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP027",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-04-02",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP028",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-04-03",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP029",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-04-04",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP030",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-04-05",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP031",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-04-06",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP032",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-04-07",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP033",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-05-01",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP034",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-05-02",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP035",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-05-03",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP036",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-05-04",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP037",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-05-05",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP038",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-05-06",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP039",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-05-07",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP040",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-05-08",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP041",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-05-09",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP042",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-05-10",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP043",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-05-11",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP044",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-05-12",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP045",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-05-13",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP046",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-05-14",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP047",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-05-15",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP048",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-06-01",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP049",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-06-02",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP050",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-06-03",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP051",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-06-04",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP052",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-06-05",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP053",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-06-06",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP054",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-06-07",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP055",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-06-08",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP056",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-06-09",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP057",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-06-10",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP058",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-07-01",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP059",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-07-02",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP060",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-07-03",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP061",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-07-04",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP062",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-07-05",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP063",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-07-06",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP064",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-07-07",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP065",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-07-08",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP066",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-07-09",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP067",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-08-01",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP068",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-08-02",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP069",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-08-03",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP070",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-08-04",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP071",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-08-05",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP072",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-08-06",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP073",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-08-07",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP074",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-08-08",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP075",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-08-09",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP076",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-08-10",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP077",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-08-11",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP078",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-09-01",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP079",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-09-02",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP080",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-09-03",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP081",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-09-04",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP082",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-09-05",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP083",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-09-06",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP084",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-09-07",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP085",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-09-08",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP086",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-09-09",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP087",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-10-01",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP088",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-10-02",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP089",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-10-03",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP090",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-10-04",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP091",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-10-05",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP092",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-10-06",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP093",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-10-07",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP094",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-10-08",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP095",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-10-09",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP096",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-11-01",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP097",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-11-02",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP098",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-11-03",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP099",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-11-04",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP100",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-11-05",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP101",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-11-06",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP102",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-11-07",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP103",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-11-08",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP104",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-11-09",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP105",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-11-10",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP106",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-11-11",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP107",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-11-12",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP108",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-12-01",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP109",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-12-02",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP110",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-12-03",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP111",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-12-04",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP112",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-12-05",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP113",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-12-06",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP114",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-12-07",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP115",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      applied_on: "2026-12-08",
+      status: "PENDING_RECRUITMENT",
+    },
+    {
+      application_id: "APP116",
+      candidate_id: "CAND002",
+      job_id: "JOB102",
+      applied_on: "2026-12-09",
+      status: "IN_PROGRESS",
+    },
+    {
+      application_id: "APP117",
+      candidate_id: "CAND001",
+      job_id: "JOB103",
+      applied_on: "2026-12-10",
+      status: "FILLED",
+    },
+    {
+      application_id: "APP118",
+      candidate_id: "CAND002",
+      job_id: "JOB101",
+      applied_on: "2026-12-11",
+      status: "PENDING_INTERVIEW",
+    },
+    {
+      application_id: "APP119",
+      candidate_id: "CAND001",
+      job_id: "JOB102",
+      applied_on: "2026-12-12",
+      status: "PENDING_LOCATION",
+    },
+    {
+      application_id: "APP120",
+      candidate_id: "CAND002",
+      job_id: "JOB103",
+      applied_on: "2026-12-13",
+      status: "PENDING_RECRUITMENT",
+    },
+  ],
+  interviews: [
+    {
+      interview_id: "INT001",
+      application_id: "APP001",
+      type: "TECHNICAL",
+      decision: "PASS",
+      comments: "Strong React and JavaScript fundamentals",
+      interviewed_on: "2026-01-06",
+    },
+    {
+      interview_id: "INT002",
+      application_id: "APP002",
+      type: "MANAGER",
+      decision: "APPROVED",
+      comments: "Good communication and team fit",
+      interviewed_on: "2026-01-07",
+    },
+  ],
+  locations: [
+    {
+      location_id: "LOC01",
+      city: "Bangalore",
+      bdc: "Whitefield BDC",
+    },
+    {
+      location_id: "LOC02",
+      city: "Chennai",
+      bdc: "Tambaram BDC",
+    },
+    {
+      location_id: "LOC03",
+      city: "Hyderabad",
+      bdc: "Gachibowli BDC",
+    },
+  ],
+  desks: [
+    {
+      desk_id: "DESK45",
+      location_id: "LOC01",
+      desk_no: "45",
+    },
+  ],
+  locationAssignments: [
+    {
+      assignment_id: "LA001",
+      candidate_id: "CAND001",
+      job_id: "JOB101",
+      desk_id: "DESK45",
+      start_date: "2026-02-01",
+    },
+  ],
+  laptops: [
+    {
+      laptop_id: "LAP1001",
+      name: "Dell Latitude 5430",
+      expire_date: "2029-02-01",
+    },
+  ],
+  equipmentAssignments: [
+    {
+      assignment_id: "EA001",
+      candidate_id: "CAND001",
+      laptop_id: "LAP1001",
+      start_date: "2026-02-01",
+    },
+  ],
+  users: [
+    {
+      currentUserRole: "HR",
+      activeCandidateId: "CAND001",
+      activeJobId: "JOB101",
+      currentStep: "EQUIPMENT_ASSIGNMENT",
+      loading: false,
+    },
+    {
+      currentUserRole: "Manager",
+      activeCandidateId: "CAND002",
+      activeJobId: "JOB102",
+      currentStep: "EQUIPMENT_ASSIGNMENT",
+      loading: false,
+    },
+  ],
 };
 
 export const dbData = createSlice({
@@ -140,27 +1020,42 @@ export const dbData = createSlice({
       state.candidates.push(action.payload);
     },
     getApplicationsByCandidate: (state, action) => {
-      return state.applications.filter(app => app.candidate_id === action.payload.candidate_id);
+      return state.applications.filter(
+        (app) => app.candidate_id === action.payload.candidate_id
+      );
     },
     addjob: (state, action) => {
       state.jobs.push(action.payload);
     },
     removeJobList: (state, action) => {
-      state.jobs = state.jobs.filter(job => job.job_id !== action.payload.job_id);
+      state.jobs = state.jobs.filter(
+        (job) => job.job_id !== action.payload.job_id
+      );
     },
     addApplication: (state, action) => {
       state.applications.push(action.payload);
     },
     removeApplication: (state, action) => {
-      state.applications = state.applications.filter(app => app.application_id !== action.payload.application_id);
+      state.applications = state.applications.filter(
+        (app) => app.application_id !== action.payload.application_id
+      );
     },
     addLocaionAssignment: (state, action) => {
       state.locationAssignments.push(action.payload);
     },
-  }});
+  },
+});
 
 //export const { addCandidate } = counterSlice.actions;
 
-export const { addCandidate, addjob, getData, removeJobList, addApplication, removeApplication, getApplicationsByCandidate } = dbData.actions;
+export const {
+  addCandidate,
+  addjob,
+  getData,
+  removeJobList,
+  addApplication,
+  removeApplication,
+  getApplicationsByCandidate,
+} = dbData.actions;
 
 export default dbData.reducer;
