@@ -1,4 +1,4 @@
-/*:root {
+root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -24,7 +24,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  /*display: flex;*/
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -66,4 +66,12 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-*/
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+} 
+
+.light-mode {  
+  --bg: #ffffff;
+  --text: #000000;
+}

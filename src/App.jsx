@@ -7,6 +7,8 @@ import JobList from "./pages/Jobs/JobListPage";
 import JobDetailsPage from "./pages/Jobs/JobDetailsPage";
 import JobApplySuccessPage from "./pages/Jobs/JobApplySuccessPage";
 import LocationAssign from './pages/Loc/LocationAssign';
+import ReportPage from './pages/Report';
+import SettingsPage from './pages/Settings';  
 
 
 import './App.css'
@@ -25,6 +27,8 @@ function MyApp() {
             <Route path=":job_id/Sucess" element={<JobApplySuccessPage />}></Route>
           </Route>
           <Route path="/locationlist" element={<LocationAssign />}></Route>
+          <Route path="/reports" element={<ReportPage />}></Route>
+          <Route path="/settings" element={<SettingsPage />}></Route> 
         </Route>
       </Routes>
     </BrowserRouter>

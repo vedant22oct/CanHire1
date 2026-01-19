@@ -74,6 +74,34 @@ const JobListView = () => {
                 </ul>
               </div>
             </Tab>
+             <Tab eventKey="Applied " title="Applied Jobs">
+              <div>
+                <h3>Applied Jobs</h3>
+                <ul style={{ listStyle: 'none', padding: 0 }}>
+                  {jobs.filter(job => job.applied).map((job) => (
+                    <li key={job.job_id} style={{
+                      borderBottom: '1px solid #ddd',
+                      padding: '10px 0',
+                      display: 'flex',
+                      justifyContent: 'space-between'
+                    }}>
+
+                      <strong>{job.job_id}</strong> <strong>{job.role}</strong> — {job.location}
+                      <h2><NavLink to={`/joblist/${job.job_id}`}>Details</NavLink></h2>
+                      <span>
+                        <button
+                          onClick={() => handleRemoveJob(job.job_id)}
+                          style={{ color: 'red', cursor: 'pointer' }}
+                        >
+                          Delete
+                        </button>
+                      </span>
+
+                    </li>
+                  ))}
+                </ul>   
+              </div>
+              </Tab>
           </Tabs>
         </Container>
       </ul>
