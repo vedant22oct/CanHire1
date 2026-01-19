@@ -2,14 +2,14 @@ import React, { useMemo } from 'react'
 import Barchart from '../components/Barchart'
 import { useSelector } from 'react-redux';
 import MonthMapping from '../assets/MonthMapping';
-import LineChartJobAnalysis from '../components/LineChartJobAnalysis';  
+import LineChartJobAnalysis from '../components/LineChartJobAnalysis';
+import ApplicationTable from '../components/ApplicationTable';
 
 function HomePage() {
   const { applications } = useSelector(store => store.db)
 
   const data = useMemo(() => {
     const monthMapping = MonthMapping;
-
     const records = []
     Object.keys(monthMapping).forEach(month => {
       const appliedCount = applications.filter(a => {
@@ -51,8 +51,9 @@ function HomePage() {
   return (
     <div>
       <Barchart data={data} />
-      <LineChartJobAnalysis data={data}/>
-      </div>
+      <LineChartJobAnalysis data={data} />
+      <ApplicationTable />
+    </div>
   )
 }
 
