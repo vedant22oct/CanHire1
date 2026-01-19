@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const themeSlice = createSlice({
   name: "theme",
   initialState: {
-    mode: "light"
+    mode: "light",
+    layout: "grid",
+    font: "Arial",
   },
   reducers: {
     toggleTheme: (state) => {
@@ -11,11 +13,16 @@ const themeSlice = createSlice({
     },
     setTheme: (state, action) => {
       state.mode = action.payload;
-    }
-  }
+    },
+    updateTheme: (state, action) => {
+      state.mode = action.payload.mode;
+      state.layout = action.payload.layout;
+      state.font = action.payload.font;
+    },
+  },
 });
 
-export const { toggleTheme, setTheme } = themeSlice.actions;
+export const { toggleTheme, setTheme, updateTheme } = themeSlice.actions;
 export default themeSlice.reducer;
 
 
