@@ -5,7 +5,10 @@ import './index.css'
 import App from './App.jsx'
 import { Provider } from 'react-redux';
 import store from './redux/store.js';
+import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 
+// Register all Community features
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 createRoot(document.getElementById('root')).render(
   // <StrictMode>
