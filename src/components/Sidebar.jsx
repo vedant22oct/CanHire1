@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Sidebar.css";
+import { Link } from "react-router";
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
@@ -19,7 +20,7 @@ export default function Sidebar() {
       <ul className="menu">
         {menu.map((item) => (
           <li key={item.path}>
-            <a href={item.path}>{item.label}</a>
+            <Link to={item.path}>{item.label}</Link>
           </li>
         ))}
       </ul>
